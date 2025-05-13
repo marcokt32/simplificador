@@ -12,10 +12,24 @@ templates = Jinja2Templates(directory="templates")
 async def upload_page(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
+
 @app.post("/upload")
 async def upload_excel(file: UploadFile = File(...)):
-    with open("{file.filename}.xlsx", "wb") as buffer:
+    temp_filename = "temp.xlsx"
+
+    # Salva o upload como 'temp.xlsx'
+    with open(temp_filename, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
 
-    processar_excel("temp.xlsx", "saida_simplificada.xlsx")
-    return FileResponse("saida_simplificada.xlsx", filename="saida_simplificada.xlsx", media_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+    # Processa o arquivo
+    processar_excel(temp_filename, "saida_simplificada.xlsx")
+
+    # Remove o arquivo temporário, se quiser limpar
+    os.remove(temp_filename)
+
+    # Retorna o arquivo processado para download
+    return FileResponse(
+        "saida_simplificada.xlsx",
+        filename="saida_simplificada.xlsx",
+        media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    )

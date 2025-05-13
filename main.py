@@ -25,7 +25,7 @@ async def upload_excel(file: UploadFile = File(...)):
     processar_excel(temp_filename, "saida_simplificada.xlsx")
 
     # Remove o arquivo temporário, se quiser limpar
-    os.remove(temp_filename)
+    #os.remove(temp_filename)
 
     # Retorna o arquivo processado para download
     return FileResponse(

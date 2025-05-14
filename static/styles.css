@@ -1,0 +1,149 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #3759be, #070e52);
+    font-family: Arial, sans-serif;
+    color: #fff;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 300px;
+}
+
+input[type="file"] {
+    padding: 10px;
+    background-color: #fff;
+    border: none;
+    border-radius: 8px;
+    color: #000;
+    cursor: pointer;
+}
+
+button {
+    padding: 12px;
+    background-color: #00b4d8;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+    background-color: #0077b6;
+    transform: scale(1.03);
+}
+
+footer {
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.85rem;
+    color: #ccc;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.switch-container {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.switch {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    width: 200px;
+    height: 50px;
+    background: #ddd;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+.switch .label-left,
+.switch .label-right {
+    flex: 1;
+    text-align: center;
+    z-index: 2;
+    font-weight: bold;
+    color: #000;
+    font-size: 0.95rem;
+    pointer-events: none;
+}
+
+.switch .toggle {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background: #00b4d8;
+    border-radius: 25px;
+    transition: transform 0.3s;
+    z-index: 1;
+}
+
+/* Esconde checkbox padrão */
+input[type="checkbox"] {
+    display: none;
+}
+
+/* Estado inicial - TC CUNHA ativo */
+input[type="checkbox"]+.switch .label-left {
+    font-weight: 900;
+    color: #ff8800;
+    opacity: 1;
+}
+
+input[type="checkbox"]+.switch .label-right {
+    font-weight: lighter;
+    color: #000;
+    opacity: 0.2;
+}
+
+/* Estado ativado - WSO AMARAL ativo */
+input[type="checkbox"]:checked+.switch .toggle {
+    transform: translateX(100%);
+}
+
+input[type="checkbox"]:checked+.switch .label-left {
+    font-weight: lighter;
+    color: #000000;
+    opacity: 0.2;
+}
+
+input[type="checkbox"]:checked+.switch .label-right {
+    font-weight: 900;
+    color: #ff8800;
+    opacity: 1;
+}

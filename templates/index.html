@@ -1,17 +1,47 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload de Planilha</title>
+    <link rel="stylesheet" href="../static/styles.css">
 </head>
+
 <body>
-    <h1>Simplificador de Planilhas</h1>
-    <form action="/upload" method="post" enctype="multipart/form-data">
-        <input type="file" name="file" accept=".xlsx" required>
-        <button type="submit">Enviar e Baixar</button>
-    </form>
+    <main class="container">
+        <h1>Simplificador de Planilhas</h1>
+        <div class="switch-container">
+            <input type="checkbox" id="toggleSwitch">
+            <label for="toggleSwitch" class="switch">
+                <span class="label-left">TC CUNHA</span>
+                <span class="toggle"></span>
+                <span class="label-right">WSO AMARAL</span>
+            </label>
+        </div>
+
+        <!-- Formulário com base na seleção do interruptor -->
+        <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+            <!-- Campo hidden para armazenar a base selecionada -->
+            <input type="hidden" name="baseSelecionada" id="baseSelecionada" value="tc">
+            <input type="file" name="file" accept=".xlsx" required>
+            <button type="submit">Enviar e Baixar</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Marco Quintela. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        const toggle = document.getElementById('toggleSwitch');
+        const hiddenInput = document.getElementById('baseSelecionada');
+
+        // Atualiza o valor da base selecionada conforme o estado do interruptor
+        toggle.addEventListener('change', function () {
+            hiddenInput.value = this.checked ? 'wso' : 'tc';
+        });
+    </script>
 </body>
-<footer>
-    <p>Criado por Marco Quintela 2025</p>
-</footer>
+
 </html>

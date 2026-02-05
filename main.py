@@ -19,6 +19,13 @@ templates = Jinja2Templates(directory="templates")
 @app.get("/", response_class=HTMLResponse)
 async def upload_page(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
+    
+from fastapi.responses import PlainTextResponse
+
+@app.get("/ads.txt", response_class=PlainTextResponse)
+async def ads_txt():
+    return "google.com, pub-4284180364619354, DIRECT, f08c47fec0942fa0"
+
 
 @app.post("/upload")
 async def upload_excel(

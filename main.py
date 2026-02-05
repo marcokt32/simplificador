@@ -24,7 +24,7 @@ from fastapi.responses import PlainTextResponse
 
 @app.get("/ads.txt", response_class=PlainTextResponse)
 async def ads_txt():
-    return "google.com, pub-4284180364619354, DIRECT, f08c47fec0942fa0"
+    return "google.com, pub-8119130352737496, DIRECT, f08c47fec0942fa0"
 
 
 @app.post("/upload")

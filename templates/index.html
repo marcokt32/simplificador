@@ -8,28 +8,35 @@
     <title>Upload de Planilha</title>
     <link rel="stylesheet" href="../static/styles.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8119130352737496"
-     crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
     <main class="container">
+        <img src="../static/1548443710_logo_nova_pequena.webp" alt="logo meu filtro">
         <h1>Simplificador de Planilhas</h1>
-        <div class="switch-container">
+        <!--<div class="switch-container">
             <input type="checkbox" id="toggleSwitch">
             <label for="toggleSwitch" class="switch">
                 <span class="label-left">TC CUNHA</span>
                 <span class="toggle"></span>
                 <span class="label-right">WSO AMARAL</span>
             </label>
-        </div>
+        </div>-->
 
         <!-- Formulário com base na seleção do interruptor -->
         <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
             <!-- Campo hidden para armazenar a base selecionada -->
-            <input type="hidden" name="baseSelecionada" id="baseSelecionada" value="tc">
+            <input type="hidden" name="baseSelecionada" id="baseSelecionada" value="wso">
             <input type="file" name="file" accept=".xlsx" required>
             <button type="submit">Enviar e Baixar</button>
         </form>
+        <div class="card">
+            <h2>Observações</h2>
+            <p>Este recurso funciona apenas para a Empresa WSO</p>
+            <p>As colunas filtradas para saída são:</p>
+            <p>Unidades # / de anúncio / Título do anúncio / Variação / Comprador</p>
+        </div>
     </main>
 
     <footer>
@@ -37,13 +44,13 @@
     </footer>
 
     <script>
-        const toggle = document.getElementById('toggleSwitch');
-        const hiddenInput = document.getElementById('baseSelecionada');
+        //const toggle = document.getElementById('toggleSwitch');
+        //const hiddenInput = document.getElementById('baseSelecionada');
 
         // Atualiza o valor da base selecionada conforme o estado do interruptor
-        toggle.addEventListener('change', function () {
-            hiddenInput.value = this.checked ? 'wso' : 'tc';
-        });
+        //toggle.addEventListener('change', function () {
+        //   hiddenInput.value = this.checked ? 'wso' : 'tc';
+        //});
     </script>
 </body>
 

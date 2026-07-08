@@ -83,8 +83,8 @@ footer {
     text-align: center;
     padding: 15px 0;
     font-size: 0.85rem;
-    color: #ccc;
-    background-color: rgba(0, 0, 0, 0.1);
+    color: #ffffff;
+    background-color: rgba(1, 1, 20, .5);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
